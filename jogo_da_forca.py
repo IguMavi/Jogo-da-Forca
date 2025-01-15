@@ -1,11 +1,7 @@
 import random
+from palavras import lista_palavras
 
-caminho_arquivo = r'C:\Users\imavi\Desktop\Projects\Jogo da forca\banco.txt'
-
-with open(caminho_arquivo, 'r') as arquivo:
-    palavras = arquivo.read().splitlines()
-
-palavra = random.choice(palavras)
+palavra = random.choice(lista_palavras)
 
 contador = len(palavra)
 check = False
