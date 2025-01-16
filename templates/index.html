@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{%for letra in palavra%}
-        <p>_</p> 
-        {%endfor%}</h1>
-    <h1>{{palavra}}</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../static/css/style.css">
+    </head>
+    <body>
+        <div class="jogo">
+            {%for letra in palavra%}
+                <h1 class="palavra-escondida">_</h1> 
+            {%endfor%}
+        </div>
+        
+        <div>
+            <form id="form-tentativa">
+                <input type="text" id="tentativa" name="tentativa">
+            </form>
+        </div>
+
+        <div>
+            <h1>{{palavra}}</h1>
+        </div>
+        <script src="../static/js/javascript.js"></script>
+    </body>
 </html>

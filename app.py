@@ -1,14 +1,20 @@
-from flask import Flask, render_template
-from palavras import lista_palavras
-import random
+from flask import Flask, render_template, request
+from palavras import palavra_secreta
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    palavra = random.choice(lista_palavras)
-    tamanho = len(palavra)
-    return render_template("index.html", palavra = palavra, tamanho = tamanho)
+    return render_template("index.html", palavra = palavra_secreta)
+
+@app.route("/verificar-tentativa", methods=["POST"])
+def verificacao():
+    data = request.get_json()
+    tentativa = data.get("tentativa")
+
+    if tentativa in palavra_secreta or tentativa == palavra_secreta:
+        return {"response": True}
+    return {"response": False}
 
 if __name__ == "__main__":
     app.run(debug=True)
