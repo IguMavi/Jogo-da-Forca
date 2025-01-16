@@ -1,20 +1,12 @@
+const input = document.getElementById("tentativa");
+
 document.getElementById("form-tentativa").addEventListener("submit", function (event) {
     event.preventDefault();
     verificar_tentativa();
+    input.value = "";
 });
 
 // ----------------- //
-
-function useState(initialValue) {
-    let state = initialValue;
-
-    function setState(newValue) {
-        state = newValue;
-        console.log(`Estado atualizado para: ${state}`);
-    }
-
-    return [() => state, setState];
-}
 
 async function fetchData(letra){
     const response = await fetch("http://127.0.0.1:5000/verificar-tentativa", {
@@ -29,9 +21,6 @@ async function fetchData(letra){
 
     return await response.json()
 }
-
-
-const [tentativa, setTentativa] = useState(null);
 
 async function verificar_tentativa() {
     var letra = document.getElementById("tentativa").value;
