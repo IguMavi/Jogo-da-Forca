@@ -8,9 +8,7 @@
     </head>
     <body>
         <div class="jogo">
-            {%for letra in palavra%}
-                <h1 class="palavra-escondida">_</h1> 
-            {%endfor%}
+            <div class="sla" id="board"></div>
         </div>
         
         <div>
@@ -20,7 +18,7 @@
         </div>
 
         <div>
-            <h1>{{palavra}}</h1>
+            <h1>{{palavra}}</h1>  <!-- do render template no flask -->
         </div>
         <script src="../static/js/javascript.js"></script>
     </body>
