@@ -9,8 +9,7 @@ def index():
 
 @app.route("/get_palavra", methods=["GET"])
 def get_palavra():
-    tamanho = len(palavra_secreta)
-    return {"palavra": palavra_secreta, "tamanho": tamanho}
+    return {"palavra": palavra_secreta}
 
 @app.route("/verificar-tentativa", methods=["POST"])
 def verificacao():
